@@ -1,4 +1,4 @@
-package com.mabrupi.spring_learning;
+package com.mabrupi.springlearning;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

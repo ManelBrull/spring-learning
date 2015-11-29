@@ -1,4 +1,4 @@
-package com.mabrupi.spring_learning;
+package com.mabrupi.springlearning;
 
 /**
  * Hello world!
