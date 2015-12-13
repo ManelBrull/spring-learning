@@ -2,11 +2,7 @@ package com.mabrupi.springlearning.mail;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 
-@Component
-@Primary
 public class SmtpMailSender implements MailSender {
 
     private static final Log log = LogFactory.getLog(MockMailSender.class);
