@@ -10,8 +10,12 @@ import com.mabrupi.springlearning.mail.MailSender;
 @RestController
 public class MailController {
 
-    @Resource(name = "smtpMailSender")
     private MailSender mailSender;
+
+    @Resource(name = "smtpMailSender")
+    public void setMailSender(MailSender mailSender) {
+        this.mailSender = mailSender;
+    }
 
     @RequestMapping("/sendMail")
     public String sendMail() {
