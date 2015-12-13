@@ -1,7 +1,6 @@
 package com.mabrupi.springlearning.rest;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +11,8 @@ public class MailController {
 
     private MailSender mailSender;
 
-    @Resource(name = "smtpMailSender")
-    public void setMailSender(MailSender mailSender) {
+    @Autowired
+    public MailController(MailSender mailSender) {
         this.mailSender = mailSender;
     }
 
