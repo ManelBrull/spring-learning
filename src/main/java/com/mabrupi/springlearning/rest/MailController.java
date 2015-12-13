@@ -1,7 +1,6 @@
 package com.mabrupi.springlearning.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +12,7 @@ public class MailController {
     private MailSender mailSender;
 
     @Autowired
-    public MailController(@Qualifier("smtpMailSender") MailSender mailSender) {
+    public MailController(MailSender mailSender) {
         this.mailSender = mailSender;
     }
 
