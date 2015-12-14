@@ -12,15 +12,21 @@ public class MailSenderConfig {
     @Bean
     @Profile("dev")
     public MailSender mockMailSender() {
-        return new MockMailSender();
+        MockMailSender mailSender = new MockMailSender();
+        mailSender.setDemoObject(demoObject());
+        return mailSender;
     }
 
     @Bean
     @Profile("!dev")
     public MailSender smtpMailSender() {
-        DemoObject demoObject = new DemoObject();
         SmtpMailSender mailSender = new SmtpMailSender();
-        mailSender.setDemoObject(demoObject);
+        mailSender.setDemoObject(demoObject());
         return mailSender;
+    }
+
+    @Bean
+    public DemoObject demoObject() {
+        return new DemoObject();
     }
 }
