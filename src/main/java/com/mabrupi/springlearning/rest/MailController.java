@@ -1,5 +1,7 @@
 package com.mabrupi.springlearning.rest;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,7 @@ public class MailController {
     }
 
     @RequestMapping("/sendMail")
-    public String sendMail() {
+    public String sendMail() throws MessagingException {
         mailSender.send("some_email@gmail.com", "Some subject", "Very important subject");
         return "Email sent";
     }

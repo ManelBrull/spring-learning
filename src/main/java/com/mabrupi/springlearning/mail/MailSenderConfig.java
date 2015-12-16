@@ -2,7 +2,8 @@ package com.mabrupi.springlearning.mail;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Primary;
+import org.springframework.mail.javamail.JavaMailSender;
 
 import com.mabrupi.springlearning.external.DemoObject;
 
@@ -10,7 +11,6 @@ import com.mabrupi.springlearning.external.DemoObject;
 public class MailSenderConfig {
 
     @Bean
-    @Profile("dev")
     public MailSender mockMailSender(DemoObject demoObject) {
         MockMailSender mailSender = new MockMailSender();
         mailSender.setDemoObject(demoObject);
@@ -18,10 +18,10 @@ public class MailSenderConfig {
     }
 
     @Bean
-    @Profile("!dev")
-    public MailSender smtpMailSender(DemoObject demoObject) {
+    @Primary
+    public MailSender smtpMailSender(JavaMailSender javaMailSender) {
         SmtpMailSender mailSender = new SmtpMailSender();
-        mailSender.setDemoObject(demoObject);
+        mailSender.setJavaMailsender(javaMailSender);
         return mailSender;
     }
 
